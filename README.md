@@ -56,6 +56,14 @@ Guidelines for contributing to the project.
 2. Commit your changes (`git commit -m 'Add some amazing feature'`)
 3. Push to the branch (`git push origin feature/amazing-feature`)
 4. Open a Pull Request
+5. Add the change to [CHANGES.md](./CHANGES.md) using following template
+   ```md
+   ##### 2025-03-31 0.1.0
+
+   - FEATURE: Description what changed or was added. (#1)
+   - BUGFIX: Description what changed or was added. (#2)
+   - ENHANCEMENT: Description what changed or was added. (#3)
+    ```
 
 ## License
 MIT License
