@@ -27,3 +27,10 @@ dependencies {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+tasks.named<Jar>("bootJar") {
+	archiveClassifier.set("full")
+	exclude("application.properties")
+	exclude("logback.xml")
+	exclude(".gitignore")
+}
