@@ -34,3 +34,16 @@ tasks.named<Jar>("bootJar") {
 	exclude("logback.xml")
 	exclude(".gitignore")
 }
+
+tasks.register<Copy>("writeVersion") {
+	from("src/main/resources/static")
+	into(layout.buildDirectory.dir("resources/main/static"))
+	include("index.html")
+	filter { line: String ->
+		line.replace("LOCAL_VERSION", project.version.toString())
+	}
+}
+
+tasks.named("classes") {
+	dependsOn(tasks.named("writeVersion"))
+}
