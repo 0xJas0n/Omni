@@ -46,6 +46,16 @@ Brief description of the application architecture, possibly with a diagram.
 npm test
 ```
 
+Run static code analysis locally with the following command.
+The host URL is only valid in the FHV Wi-Fi.
+```bash
+sonar-scanner \
+  -Dsonar.projectKey=Omni \
+  -Dsonar.sources=src/main \
+  -Dsonar.host.url=http://10.0.40.179:9000 \
+  -Dsonar.token=sqp_23ff9776568253a0fff47bf5baf75cd7da74a469
+```
+
 ## Deployment
 Instructions for deploying to production environments.
 

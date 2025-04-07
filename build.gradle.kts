@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.4"
 	id("io.spring.dependency-management") version "1.1.7"
+	jacoco
 }
 
 group = "fhv"
@@ -46,4 +47,16 @@ tasks.register<Copy>("writeVersion") {
 
 tasks.named("classes") {
 	dependsOn(tasks.named("writeVersion"))
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+	finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+	dependsOn(tasks.test)
+	reports {
+		xml.required = true
+	}
 }
