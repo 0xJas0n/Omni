@@ -1,0 +1,3 @@
+[submodule "client"]
+	path = client
+	url = git@github.com:0xJas0n/Omni-Client.git
