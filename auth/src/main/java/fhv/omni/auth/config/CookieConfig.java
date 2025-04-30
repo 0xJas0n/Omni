@@ -11,7 +11,7 @@ public class CookieConfig {
     @Bean
     public CookieSerializer cookieSerializer() {
         DefaultCookieSerializer serializer = new DefaultCookieSerializer();
-        serializer.setCookieName("JSESSIONID");
+        serializer.setCookieName("SESSION");
         serializer.setCookiePath("/");
         serializer.setSameSite("Lax");
         serializer.setUseHttpOnlyCookie(true);
