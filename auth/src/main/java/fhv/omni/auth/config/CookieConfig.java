@@ -15,7 +15,7 @@ public class CookieConfig {
         serializer.setCookiePath("/");
         serializer.setSameSite("Lax");
         serializer.setUseHttpOnlyCookie(true);
-        serializer.setUseSecureCookie(false); // Set to true for HTTPS
+        serializer.setUseSecureCookie(false); // TODO: Set to true for HTTPS
         return serializer;
     }
 }
