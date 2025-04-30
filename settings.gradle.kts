@@ -1,3 +1,3 @@
 rootProject.name = "omni"
 
-include("core")
+include("core", "auth")
