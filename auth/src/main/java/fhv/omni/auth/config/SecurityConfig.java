@@ -22,7 +22,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .cors(AbstractHttpConfigurer::disable)
-                .csrf(AbstractHttpConfigurer::disable) // cors and csrf disabled for dev testing purposes
+                .csrf(AbstractHttpConfigurer::disable) // CORS and CSRF disabled for dev testing purposes
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login", "/register").permitAll()
                         .anyRequest().authenticated()

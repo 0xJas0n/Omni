@@ -41,7 +41,7 @@ public class OmniUser implements UserDetails, Serializable {
                 .collect(Collectors.toSet());
     }
 
-    // required for serialization
+    // Required for serialization
     @Transient
     private Set<SimpleGrantedAuthority> authorities;
     
@@ -56,7 +56,7 @@ public class OmniUser implements UserDetails, Serializable {
                 .collect(Collectors.toSet());
     }
 
-    // required for serialization
+    // Required for serialization
     @JsonProperty
     private void setAuthorities(Set<SimpleGrantedAuthority> authorities) {
         this.authorities = authorities;
