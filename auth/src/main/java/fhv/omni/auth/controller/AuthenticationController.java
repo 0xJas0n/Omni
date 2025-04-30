@@ -17,7 +17,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -48,7 +53,7 @@ public class AuthenticationController {
             HttpSession session = request.getSession(true);
             session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY,
                     SecurityContextHolder.getContext());
-            
+
             log.info("Login successful for user: {}, session ID: {}", authRequest.username(), session.getId());
             return ResponseEntity.ok()
                     .header("X-Auth-Token", session.getId())
@@ -63,12 +68,12 @@ public class AuthenticationController {
     public ResponseEntity<String> register(@Valid @RequestBody RegistrationRequest request) {
         if (!request.password().equals(request.passwordConfirm())) {
             return ResponseEntity.badRequest()
-                    .body("Passwords do not match"); // Use a standard error response from core once its implemented
+                    .body("Passwords do not match"); // TODO: Use a standard error response from core once its implemented
         }
 
         registrationService.register(request.email(), request.username(), request.password());
 
-        return ResponseEntity.ok("Registration Successful"); // Use standard response builder for success messages
+        return ResponseEntity.ok("Registration Successful"); // TODO: Use standard response builder for success messages
     }
 
     @RequestMapping(value = "/logout", method = {RequestMethod.POST, RequestMethod.GET})
